@@ -22,23 +22,18 @@ export default function App() {
 }
 
 function Page() {
-
-    const listRecords = usePowerSyncWatchedQuery<ListRecord & { total_tasks: number; completed_tasks: number }>(`
+    const listRecords = usePowerSyncWatchedQuery<ListRecord>(`
         SELECT
-          ${LIST_TABLE}.*, COUNT(${TODO_TABLE}.id) AS total_tasks, SUM(CASE WHEN ${TODO_TABLE}.completed = true THEN 1 ELSE 0 END) as completed_tasks
+          api_list.*
         FROM
-          ${LIST_TABLE}
-        LEFT JOIN ${TODO_TABLE}
-          ON  ${LIST_TABLE}.id = ${TODO_TABLE}.list_id
-        GROUP BY
-          ${LIST_TABLE}.id;
+          api_list
         `);
   console.log(listRecords);
   return (
     <View style={styles.container}>
       <ScrollView key={'lists'} style={{ maxHeight: '90%' }}>
           {listRecords.map((r) => (
-            <Text>{r.name} / {r.id}</Text>
+            <Text key="{{r.id}}">{r.name} / {r.id}</Text>
           ))}
       </ScrollView>
       <Text>You've reached the end of your todos. </Text>

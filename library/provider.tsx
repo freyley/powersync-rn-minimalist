@@ -7,7 +7,7 @@ import { BackendConnector } from './connector';
 import { AppSchema } from './AppSchema';
 
 const factory = new RNQSPowerSyncDatabaseOpenFactory({
-  AppSchema,
+  schema: AppSchema,
   dbFilename: 'db.sqlite'
   //location: 'optional location directory to DB file'
 });

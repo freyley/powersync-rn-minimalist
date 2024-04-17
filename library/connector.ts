@@ -22,10 +22,13 @@ export class BackendConnector implements PowerSyncBackendConnector {
             throw new Error(`Server returned HTTP ${response.status}`);
         }
         const session = await response.json();
-
+        if (!session.token || !session.powersync_url) {
+            console.log("API must return powersync_url and token");
+            console.log("got:", session);
+        }
         return {
             endpoint: session.powersync_url,
-            token: session.access_token ?? '',
+            token: session.token ?? '',
             expiresAt: undefined,
             userID: 4
         }
