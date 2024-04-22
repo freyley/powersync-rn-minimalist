@@ -1,8 +1,11 @@
 import { Column, ColumnType, Index, IndexedColumn, Schema, Table } from '@journeyapps/powersync-sdk-react-native';
 
+export const LIST_TABLE = 'api_list';
+export const TODO_TABLE = 'api_todo';
+
 export const AppSchema = new Schema([
   new Table({
-    name: 'api_todo',
+    name: TODO_TABLE,
     columns: [
       new Column({ name: 'list_id', type: ColumnType.TEXT }),
       new Column({ name: 'created_at', type: ColumnType.TEXT }),
@@ -15,7 +18,7 @@ export const AppSchema = new Schema([
     indexes: [new Index({ name: 'list', columns: [new IndexedColumn({ name: 'list_id' })] })]
   }),
   new Table({
-    name: 'api_list',
+    name: LIST_TABLE,
     columns: [
       new Column({ name: 'created_at', type: ColumnType.TEXT }),
       new Column({ name: 'name', type: ColumnType.TEXT }),
@@ -23,3 +26,4 @@ export const AppSchema = new Schema([
     ]
   })
 ]);
+

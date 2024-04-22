@@ -7,7 +7,7 @@ import '@azure/core-asynciterator-polyfill';
 import { usePowerSyncWatchedQuery } from '@journeyapps/powersync-sdk-react-native';
 
 import { PowerSyncProvider } from './library/provider';
-import { LIST_TABLE, TODO_TABLE, ListRecord } from './library/AppSchema';
+import { LIST_TABLE, TODO_TABLE } from './library/AppSchema';
 import { ScrollView } from 'react-native';
 import React from 'react';
 

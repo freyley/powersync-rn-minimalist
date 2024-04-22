@@ -1,5 +1,6 @@
-This is a (currently non-working) minimalist PowerSync React Native todo app _without_ Supabase. The goal is
-to understand and demonstrate the pieces of PowerSync absolutely necessary to get the app functional.
+This is a (currently read-only) minimalist PowerSync React Native hello world 
+app _without_ Supabase. The goal is to understand and demonstrate the pieces 
+of PowerSync absolutely necessary to get the app functional.
 
 This app assumes:
 1. You have a Postgres database somewhere on the internet that can be hooked up to PowerSync
